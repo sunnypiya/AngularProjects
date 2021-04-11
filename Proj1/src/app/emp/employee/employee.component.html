@@ -1,0 +1,56 @@
+<style>
+    table {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:large;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+}
+th {
+    border: 1px solid black;
+}
+
+</style>
+
+
+<p>employee works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <!-- <th attr.colspan="{{columnSpan}}"> -->
+            <th [attr.colspan]="columnSpan">
+                Employee Details
+            </th>
+        </tr>
+    </thead>
+    <tr>
+        <td>First Name</td>
+        <td>{{firstName}}</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>{{lastName}}</td>
+    </tr>
+    <tr *ngIf='showDeatils'>
+        <td>Gender</td>
+        <td>{{gender}}</td>
+    </tr>
+    <tr *ngIf='showDeatils'>
+        <td>Age</td>
+        <td>{{age}}</td>
+    </tr>
+</table>
+
+<br>
+<button (click)="toggleDetails()">
+    {{showDeatils == true ? 'Hide':'Show'}} Details
+</button>
+
+<!-- Name : <input type="text" [value]='inputText' (input)='inputText=$event.target.value' /> -->
+Name : <input type="text" [(ngModel)]='inputText' />
+<br/>
+You entered : {{inputText}}
